@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://retalix.com/R10/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://retalix.com/R10/services" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="..\Common\RetalixCommonHeader.xsd"/>
+	<xs:include schemaLocation="..\Common\ActionTypeCodes.xsd"/>
+	<xs:element name="SpecialDiscountsMaintenanceRequest" type="SpecialDiscountsMaintenanceRequest"/>
+	<xs:element name="SpecialDiscountsMaintenanceResponse" type="SpecialDiscountsMaintenanceResponse"/>
+
+	<xs:element name="SpecialDiscountsLookupRequest" type="SpecialDiscountsLookupRequest"/>
+	<xs:element name="SpecialDiscountsLookupResponse" type="SpecialDiscountsLookupResponse"/>
+
+	<xs:complexType name="SpecialDiscountsLookupRequest">
+		<xs:sequence>
+			<xs:element name="Header" type="RetalixCommonHeaderType" minOccurs="0"/>
+			<xs:element name="Id" type="xs:int" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SpecialDiscountsLookupResponse">
+		<xs:sequence>
+			<xs:element name="Header" type="RetalixCommonHeaderType" minOccurs="0"/>
+			<xs:element name="SpecialDiscountsType" type="SpecialDiscountsType"  minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SpecialDiscountsMaintenanceRequest">
+		<xs:sequence>
+			<xs:element name="Header" type="RetalixCommonHeaderType" minOccurs="0"/>
+			<xs:element name="SpecialDiscountsType" type="SpecialDiscountsType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="SpecialDiscountsType">
+		<xs:sequence>
+			<xs:element name="Id" type="xs:int" />
+			<xs:element name="DiscountCode" type="xs:string" />
+			<xs:element name="Value" type="xs:int" />
+			<xs:element name="ExpiryDate" type="xs:string" />
+		</xs:sequence>
+		<xs:attribute name="Action" type="ActionTypeCodes"/>
+	</xs:complexType>
+
+	<xs:complexType name="SpecialDiscountsMaintenanceResponse">
+		<xs:sequence>
+			<xs:element name="Header" type="RetalixCommonHeaderType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+
+</xs:schema>

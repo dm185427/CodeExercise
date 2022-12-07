@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Retalix.StoreServices.Connectivity.Infrastructure.SpecialDiscounts" assembly="Retalix.StoreServices.Connectivity.Infrastructure.SpecialDiscounts">
+	<class name="SpecialDiscounts" table="SpecialDiscounts">
+		<id name="Id" column="id" type="int" />
+		<property name="DiscountCode" column="DiscountCode" type="string" />
+		<property name="Value" column="Value" type="int" />
+		<property name="ExpiryDate" column="ExpiryDate" type="string" />
+	</class>
+</hibernate-mapping>
